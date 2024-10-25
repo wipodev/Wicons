@@ -16,6 +16,14 @@
   content: "";
 }
 
+[data-icon]:not(:empty)::before {
+  margin-inline-end: calc(var(--wipo-spacing) * 0.5);
+}
+
+[data-icon]:empty {
+  text-align: center;
+}
+
 [data-theme="dark"] .wi,
 [data-theme="dark"] [data-icon]::before {
   filter: brightness(0) invert(1);
