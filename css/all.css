@@ -11,6 +11,11 @@
   background-size: 1em auto;
   background-repeat: no-repeat;
   vertical-align: -0.125em;
+  filter: invert(0);
+}
+
+[data-theme="dark"] .wi {
+  filter: brightness(0) invert(1);
 }
 
 .wi-loading {
