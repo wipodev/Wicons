@@ -14,8 +14,21 @@
 </body>
 <button id="theme-toggle">Toggle Theme</button>
 
+<h3>Correct way of using with classes</h3>
 <i class="wi wi-loading"></i><br />
 <i class="wi wi-x-twitter"></i><br />
+
+<h3>Incorrect way of use with classes</h3>
+<i class="wi-loading"></i><br />
+<i class="x-twitter"></i><br />
+<i class="wi wi-loading"><span>text</span></i><br />
+<i class="wi wi-x-twitter"><span>text</span></i><br />
+
+<h3>Using data attributes</h3>
+<i data-icon="loading"></i><br />
+<i data-icon="x-twitter"></i><br />
+<i data-icon="loading"><span>text</span></i><br />
+<i data-icon="x-twitter"><span>text</span></i><br />
 
 <script src="js/script.js"></script>
 

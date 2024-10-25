@@ -4,7 +4,8 @@
   --wipo-spacing: 1rem;
 }
 
-.wi {
+.wi,
+[data-icon]::before {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -12,16 +13,20 @@
   background-repeat: no-repeat;
   vertical-align: -0.125em;
   filter: invert(0);
+  content: "";
 }
 
-[data-theme="dark"] .wi {
+[data-theme="dark"] .wi,
+[data-theme="dark"] [data-icon]::before {
   filter: brightness(0) invert(1);
 }
 
-.wi-loading {
+.wi-loading,
+[data-icon="loading"]::before {
   background-image: var(--wipo-icon-loading);
 }
 
-.wi-x-twitter {
+.wi-x-twitter,
+[data-icon="x-twitter"]::before {
   background-image: var(--wipo-icon-x-twitter);
 }
