@@ -1,3 +1,12 @@
+#theme-toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
 [data-theme="dark"] body {
   background-color: #222;
   color: #fff;
