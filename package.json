@@ -1,0 +1,38 @@
+{
+  "name": "wicons",
+  "version": "0.0.1",
+  "description": "A command-line tool for generating custom CSS files with selected icons from the Wicons library.",
+  "main": "bin/Cli.js",
+  "bin": {
+    "wicons": "./bin/Cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "node bin/Cli.js",
+    "dev": "node bin/Cli.js -m dev",
+    "genRoutes": "node bin/generateIconsRoutes.js",
+    "genEmbed": "node bin/generateIconsRoutes.js -e true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipodev/Wicons.git"
+  },
+  "files": [
+    "bin/Cli.js",
+    "lib/",
+    "README.md"
+  ],
+  "keywords": [
+    "icons",
+    "css",
+    "generator",
+    "cli",
+    "wicons"
+  ],
+  "author": "wipodev",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "csso": "^5.0.5"
+  }
+}

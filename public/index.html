@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/all.css">
   <title>Wicons | Icon Selector</title>
+  <script src="app.js" type="module"></script>
+  <script src="js/script.js" type="module"></script>
 </head>
 
 <body>
@@ -29,6 +31,10 @@
     <textarea id="output-css" rows="10" cols="50"></textarea>
   </article>
 
+  <h2>Cargar un archivo SVG</h2>
+  <input type="file" id="svgInput" accept=".svg" />
+  <pre id="svgContent"></pre>
+
   <button id="theme-toggle">Toggle Theme</button>
 
   <h3>Correct way of using with classes</h3>
@@ -46,8 +52,6 @@
   <i data-icon="x-twitter"></i><br />
   <i data-icon="loading"><span>text</span></i><br />
   <i data-icon="x-twitter"><span>text</span></i><br />
-
-  <script src="js/script.js" type="module"></script>
 </body>
 
 </html>
