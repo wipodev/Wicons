@@ -5,7 +5,7 @@ import { join } from "path";
 import { minify } from "csso";
 import { program } from "commander";
 import { generateWicons } from "../lib/generateWicons.js";
-import { getRoutesSVG } from "../lib/utils.js";
+import { getRoutesSVG, ensureDirectoryExists } from "../lib/utils.js";
 
 program
   .option("-p, --path <path>", "Path to SVG icons folder", join(process.cwd(), "lib/svg"))
@@ -28,10 +28,7 @@ const embedPart = embed ? "embed" : "routes";
 const modePart = mode === "build" ? ".min" : "";
 const outputFilename = options.filename || `wicons.${embedPart}${modePart}.css`;
 
-const outputPath = join(process.cwd(), outputDir);
-if (!existsSync(outputPath)) {
-  mkdirSync(outputPath, { recursive: true });
-}
+const outputPath = ensureDirectoryExists(outputDir);
 
 const routesSVG = getRoutesSVG(svgPath, embed);
 const iconsToUse = selectedIcons || Object.keys(routesSVG);
