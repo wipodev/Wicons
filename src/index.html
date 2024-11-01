@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/wicons.embed.all.min.css">
+  <title>Wicons | Icon Selector</title>
+  <script src="app.js" type="module"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="/" aria-label="Ir al inicio">
+        <!-- <img src="/assets/img/logo.png" alt="Logo"> -->
+        <span>Wicons CSS</span>
+      </a>
+      <form role="search">
+        <input type="search" placeholder="Buscar..." aria-label="Buscar" />
+        <input type="submit" value="Buscar" onclick="event.preventDefault()" />
+      </form>
+      <nav>
+        <button aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="menu">
+          <a href="/" aria-label="Ir al inicio">Inicio</a>
+          <a href="/contact" aria-label="Ir al Contacto">Contacto</a>
+        </div>
+        <a href="" aria-label="Activar o desactivar el modo oscuro" data-theme-toggle>
+          <svg version="1.1" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <g transform="scale(.75 .74959)">
+              <rect x="26.667" y="14.333" width="5.3333" height="3.3333" ry=".3444" />
+              <rect y="14.333" width="5.3333" height="3.3333" ry=".3444" />
+              <rect x="14.333" width="3.3333" height="5.3333" ry=".3444" />
+              <rect x="14.333" y="26.684" width="3.3333" height="5.3333" ry=".3444" />
+              <rect transform="rotate(45)" x="33.303" y="-1.6667" width="5.3333" height="3.3333" ry=".3444" />
+              <rect transform="rotate(45)" x="6.6182" y="-1.6667" width="5.3333" height="3.3333" ry=".3444" />
+              <rect transform="rotate(-45)" x="10.676" y="20.961" width="5.3333" height="3.3333" ry=".3444" />
+              <rect transform="rotate(-45)" x="-16.009" y="20.961" width="5.3333" height="3.3333" ry=".3444" />
+              <circle cx="16" cy="16" r="8.4" />
+            </g>
+            <path
+              d="m11.731 3.1859c-4.6563 0.2784-8.2934 4.1295-8.3059 8.7936-0.0014471 4.8792 3.9535 8.8355 8.8333 8.8355 3.7471-0.009153 7.0805-2.3816 8.3169-5.9186-5.5043 0.54039-11.129-5.3242-8.8443-11.711z"
+              display="none" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="container">
+    <h1>Select Icons to Generate CSS</h1>
+    <div id="icon-selection">
+      <label>
+        <input type="checkbox" name="icon" value="loading" />
+        Loading Icon <i class="wi wi-loading"></i>
+      </label>
+      <label>
+        <input type="checkbox" name="icon" value="x-twitter" />
+        X Twitter Icon <i class="wi wi-x-twitter"></i>
+      </label>
+    </div>
+
+    <button id="generate-css">Generate CSS</button>
+    <textarea id="output-css" rows="10" cols="50"></textarea>
+  </article>
+
+  <h2>Cargar un archivo SVG</h2>
+  <input type="file" id="svgInput" accept=".svg" />
+  <pre id="svgContent"></pre>
+  <pre id="svgURL"></pre>
+
+
+  <h3>Correct way of using with classes</h3>
+  <i class="wi wi-loading"></i><br />
+  <i class="wi wi-x-twitter"></i><br />
+
+  <h3>Incorrect way of use with classes</h3>
+  <i class="wi-loading"></i><br />
+  <i class="x-twitter"></i><br />
+  <i class="wi wi-loading"><span>text</span></i><br />
+  <i class="wi wi-x-twitter"><span>text</span></i><br />
+
+  <h3>Using data attributes</h3>
+  <i data-icon="loading"></i><br />
+  <i data-icon="x-twitter"></i><br />
+  <i data-icon="loading"><span>text</span></i><br />
+  <i data-icon="x-twitter"><span>text</span></i><br />
+</body>
+
+</html>
