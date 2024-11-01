@@ -19,8 +19,6 @@ export function createSvgIconsMap({ svgPath = join(process.cwd(), "lib/svg"), ou
   const fileContent = `export const icons = ${JSON.stringify(routesSVG, null, 2)};`;
 
   writeFileSync(finalOutputFile, fileContent);
-  console.log(`Icons routes file generated successfully at ${finalOutputFile}!`);
-
   return routesSVG;
 }
 
