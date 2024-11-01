@@ -10,7 +10,7 @@ import { join } from "path";
 const routesSVG = createSvgIconsMap({ output: "/src/src/", embed: true });
 const iconsToUse = Object.keys(routesSVG);
 const cssContent = generateWicons(iconsToUse, routesSVG);
-const cssFilePath = join(process.cwd(), "/src/assets/css/wicons.embed.css");
+const cssFilePath = join(process.cwd(), "/src/assets/css/wicons.embed.all.css");
 
 writeFileSync(cssFilePath, cssContent);
 
