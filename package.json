@@ -8,10 +8,14 @@
   },
   "type": "module",
   "scripts": {
-    "build": "node bin/Cli.js",
-    "dev": "node bin/Cli.js -m dev",
-    "genRoutes": "node bin/generateIconsRoutes.js",
-    "genEmbed": "node bin/generateIconsRoutes.js -e true"
+    "lib-dev": "node bin/Cli.js -m dev && node bin/Cli.js -m dev -e true",
+    "lib-build": "node bin/Cli.js -f wicons.routes.all.min.css && node bin/Cli.js -f wicons.embed.min.css -e true",
+    "web-dev": "node scripts/dev.js",
+    "web-build": "node scripts/build.js",
+    "web-preview": "servor ./public index.html --reload",
+    "web-deploy": "gh-pages -d public",
+    "map-routes": "node bin/svgMapGenerator.js",
+    "map-embed": "node bin/svgMapGenerator.js -e true"
   },
   "repository": {
     "type": "git",
@@ -20,6 +24,7 @@
   "files": [
     "bin/Cli.js",
     "lib/",
+    "dist/",
     "README.md"
   ],
   "keywords": [
@@ -34,5 +39,9 @@
   "dependencies": {
     "commander": "^12.1.0",
     "csso": "^5.0.5"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0",
+    "servor": "^4.0.2"
   }
 }
