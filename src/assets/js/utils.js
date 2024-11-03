@@ -1,5 +1,5 @@
-export function downloadCSS(minifiedCSS, fileName = "wicons.css") {
-  const blob = new Blob([minifiedCSS], { type: "text/css" });
+export function downloadCSS(cssContent, fileName = "wicons.css") {
+  const blob = new Blob([cssContent], { type: "text/css" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
   link.download = fileName;
