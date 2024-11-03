@@ -2,13 +2,15 @@
 
 import { rmSync, writeFileSync } from "fs";
 import { exec } from "child_process";
-import { copy } from "../lib/utils.js";
-import { createSvgIconsMap } from "../bin/svgMapGenerator.js";
-import { generateWicons } from "../lib/generateWicons.js";
 import { join } from "path";
+import { createSvgIconsMap } from "../bin/svgMapGenerator.js";
+import { copy } from "../lib/utils.js";
+import { generateWicons } from "../lib/generateWicons.js";
+import { generateIconsBox } from "../lib/htmlGenerator.js";
 
 const routesSVG = createSvgIconsMap({ output: "/src/src/", embed: true });
 const iconsToUse = Object.keys(routesSVG);
+generateIconsBox(iconsToUse);
 const cssContent = generateWicons(iconsToUse, routesSVG);
 const cssFilePath = join(process.cwd(), "/src/assets/css/wicons.embed.all.css");
 
