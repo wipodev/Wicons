@@ -30,7 +30,7 @@ servorProcess.stderr.on("data", (data) => {
 });
 
 process.on("SIGINT", () => {
-  console.log("\nCerrando el servidor...");
+  console.log("\nClosing the server...");
   servorProcess.kill("SIGINT");
   try {
     deleteIconsBox();

@@ -42,7 +42,7 @@ function handleSVGUpload(event) {
 
     reader.readAsText(file);
   } else {
-    alert("Por favor, selecciona un archivo SVG válido.");
+    alert("Please select a valid SVG file.");
   }
 }
 
