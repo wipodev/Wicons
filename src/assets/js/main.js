@@ -1,5 +1,6 @@
 import { generateWicons } from "/lib/generateWicons.js";
 import { icons } from "/src/iconsEmbed.js";
+import { downloadCSS } from "/assets/js/utils.js";
 
 export function generateCSS() {
   document.querySelector("#generate-css").addEventListener("click", () => {
@@ -7,6 +8,16 @@ export function generateCSS() {
       (input) => input.value
     );
     const cssContent = generateWicons(selectedIcons, icons);
-    document.querySelector("#output-css").textContent = cssContent;
+    const outputElement = document.querySelector("#output-css");
+    outputElement.innerHTML = cssContent;
+    Prism.highlightElement(outputElement);
+
+    document.querySelector("#copy-code").addEventListener("click", () => {
+      navigator.clipboard.writeText(cssContent).then(() => {
+        alert("CSS code copied to clipboard.");
+      });
+    });
+
+    document.querySelector("#download-code").addEventListener("click", () => downloadCSS(cssContent));
   });
 }
