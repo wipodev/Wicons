@@ -2,6 +2,7 @@
 
 import { writeFileSync } from "fs";
 import { join } from "path";
+import { pathToFileURL } from "url";
 import { program } from "commander";
 import { getRoutesSVG, ensureDirectoryExists } from "../lib/utils.js";
 
@@ -22,17 +23,24 @@ export function createSvgIconsMap({ svgPath = join(process.cwd(), "lib/svg"), ou
   return routesSVG;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   program
-    .option("-p, --path <path>", "Path to SVG icons folder", join(process.cwd(), "lib/svg"))
+    .option("-p, --path <path>", "Path to SVG icons folder", "lib/svg")
     .option("-o, --output <output>", "Output JavaScript file", null)
-    .option("-e, --embed", "Embed SVGs as Data URIs", false);
+    .option("-e, --embed", "Embed SVGs as Data URIs", false)
+    .helpCommand();
 
   program.parse(process.argv);
 
   const options = program.opts();
+
+  if (options.helpCommand) {
+    program.outputHelp();
+    process.exit(0);
+  }
+
   createSvgIconsMap({
-    svgPath: options.path,
+    svgPath: join(process.cwd(), options.path),
     output: options.output,
     embed: options.embed,
   });
