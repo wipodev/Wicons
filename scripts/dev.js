@@ -6,7 +6,7 @@ import { join } from "path";
 import { createSvgIconsMap } from "../bin/svgMapGenerator.js";
 import { copy } from "../lib/utils.js";
 import { generateWicons } from "../lib/generateWicons.js";
-import { generateIconsBox } from "../lib/htmlGenerator.js";
+import { generateIconsBox, deleteIconsBox } from "../lib/htmlGenerator.js";
 
 const routesSVG = createSvgIconsMap({ output: "/src/src/", embed: true });
 const iconsToUse = Object.keys(routesSVG);
@@ -33,11 +33,12 @@ process.on("SIGINT", () => {
   console.log("\nCerrando el servidor...");
   servorProcess.kill("SIGINT");
   try {
+    deleteIconsBox();
     rmSync(cssFilePath);
     rmSync(join(process.cwd(), "/src/src/"), { recursive: true, force: true });
     rmSync(join(process.cwd(), "/src/lib/"), { recursive: true, force: true });
   } catch (err) {
-    console.error("Error eliminando el archivos:", err);
+    console.error("Error deleting file:", err);
   }
   process.exit();
 });
