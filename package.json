@@ -37,6 +37,7 @@
   "author": "wipodev",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0",
     "commander": "^12.1.0",
     "csso": "^5.0.5"
   },
