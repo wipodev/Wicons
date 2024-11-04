@@ -1,7 +1,7 @@
 import { generateWicons } from "/lib/generateWicons.js";
 import { icons } from "/src/iconsEmbed.js";
 import { downloadCSS } from "/assets/js/utils.js";
-import { version } from "assets/js/version.js";
+import { version } from "/assets/js/version.js";
 
 export function generateCSS() {
   document.querySelector("#generate-css").addEventListener("click", () => {

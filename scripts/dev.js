@@ -11,6 +11,7 @@ import { generateIconsBox, deleteIconsBox } from "../lib/htmlGenerator.js";
 const routesSVG = createSvgIconsMap({ output: "/src/src/", embed: true });
 const iconsToUse = Object.keys(routesSVG);
 generateIconsBox(iconsToUse);
+generateIconsBox(iconsToUse, "src/es/index.html");
 const cssContent = generateWicons(iconsToUse, routesSVG, getVersion());
 const cssFilePath = join(process.cwd(), "/src/assets/css/wicons.embed.all.css");
 const versionFilePath = join(process.cwd(), "/src/assets/js/version.js");
@@ -36,7 +37,9 @@ process.on("SIGINT", () => {
   servorProcess.kill("SIGINT");
   try {
     deleteIconsBox();
+    deleteIconsBox("src/es/index.html");
     rmSync(cssFilePath);
+    rmSync(versionFilePath);
     rmSync(join(process.cwd(), "/src/src/"), { recursive: true, force: true });
     rmSync(join(process.cwd(), "/src/lib/"), { recursive: true, force: true });
   } catch (err) {
