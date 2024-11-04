@@ -4,17 +4,19 @@ import { rmSync, writeFileSync } from "fs";
 import { exec } from "child_process";
 import { join } from "path";
 import { createSvgIconsMap } from "../bin/svgMapGenerator.js";
-import { copy } from "../lib/utils.js";
+import { copy, getVersion } from "../lib/utils.js";
 import { generateWicons } from "../lib/generateWicons.js";
 import { generateIconsBox, deleteIconsBox } from "../lib/htmlGenerator.js";
 
 const routesSVG = createSvgIconsMap({ output: "/src/src/", embed: true });
 const iconsToUse = Object.keys(routesSVG);
 generateIconsBox(iconsToUse);
-const cssContent = generateWicons(iconsToUse, routesSVG);
+const cssContent = generateWicons(iconsToUse, routesSVG, getVersion());
 const cssFilePath = join(process.cwd(), "/src/assets/css/wicons.embed.all.css");
+const versionFilePath = join(process.cwd(), "/src/assets/js/version.js");
 
 writeFileSync(cssFilePath, cssContent);
+writeFileSync(versionFilePath, `export const version = "${getVersion()}";`);
 
 copy("lib/generateWicons.js", "src/lib/generateWicons.js");
 copy("lib/svg/", "src/src/svg/");
