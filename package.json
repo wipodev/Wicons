@@ -9,8 +9,8 @@
   "type": "module",
   "scripts": {
     "start": "node bin/Cli.js",
-    "lib-dev": "node bin/Cli.js -m dev && node bin/Cli.js -m dev -e true",
-    "lib-build": "node bin/Cli.js -f wicons.routes.all.min.css && node bin/Cli.js -f wicons.embed.min.css -e true",
+    "tool-dev": "node bin/Cli.js -m dev && node bin/Cli.js -m dev -e true",
+    "tool-build": "node bin/Cli.js -f wicons.routes.all.min.css && node bin/Cli.js -f wicons.embed.min.css -e true",
     "web-dev": "node scripts/dev.js",
     "web-build": "node scripts/build.js",
     "web-preview": "servor ./public index.html --reload",
