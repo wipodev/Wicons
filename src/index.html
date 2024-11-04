@@ -1,12 +1,13 @@
-<!DOCTYPE html><html lang="es" data-theme="light"><head>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
   <meta charset="UTF-8">
   <title>Wicons | Icon tool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/wicons.embed.all.css">
-  <link rel="stylesheet" href="assets/css/prism.css">
-  <script src="app.js" type="module"></script>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
+  <link rel="stylesheet" href="/assets/css/wicons.embed.all.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <script src="/app.js" type="module"></script>
 </head>
 
 <body>
@@ -21,10 +22,10 @@
         <input type="submit" value="search" onclick="event.preventDefault()">
       </form> -->
       <nav>
-        <button aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        <button aria-label="Open menu"><i class="wi wi-bars"></i></button>
         <div class="menu">
           <a href="/" aria-label="Go to the beginning">Home</a>
-          <a href="/contact" aria-label="Go to Contact">Contact</a>
+          <a href="/guide.html" aria-label="Go to the guide">Guide</a>
         </div>
         <a href="#" aria-label="Turn dark mode on or off" data-theme-toggle="">
           <svg version="1.1" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -63,8 +64,8 @@
   <footer class="container">
     <hr>
     <small>
-      <a href="/terms">Terms and Conditions</a> |
-      <a href="/contact">Contact</a>
+      <a href="/terms" aria-label="Go to the Terms">Terms and Conditions</a> |
+      <a href="/contact" aria-label="Go to Contact">Contact</a>
     </small><br>
     <small>
       Copyright © 2024-present Wicons. |
@@ -73,8 +74,6 @@
   </footer>
 
   <script src="assets/js/prism.js"></script>
-
-
 
 
 
