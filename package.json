@@ -1,6 +1,6 @@
 {
   "name": "wicons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A command-line tool for generating custom CSS files with selected icons from the Wicons.",
   "main": "bin/Cli.js",
   "bin": {
