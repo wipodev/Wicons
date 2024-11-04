@@ -5,21 +5,28 @@
  *
  * This tool allows you to select a set of icons and generate a CSS file containing
  * only the chosen icons, optimizing the weight and loading of the CSS in your web project.
+ *
+ * Author: WipoDev
+ * Created by: WipoDev
+ * License: MIT
  */
 
-import { writeFileSync } from "fs";
+import { writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { minify } from "csso";
 import { program } from "commander";
 import { generateWicons } from "../lib/generateWicons.js";
-import { getRoutesSVG, ensureDirectoryExists } from "../lib/utils.js";
+import { getRoutesSVG, ensureDirectoryExists, getVersion } from "../lib/utils.js";
+
+const defaultSvgPath = existsSync(join(process.cwd(), "lib/svg")) ? "lib/svg" : "node_modules/wicons/lib/svg";
 
 program
-  .option("-p, --path <path>", "Path to SVG icons folder", "lib/svg")
+  .option("-p, --path <path>", "Path to SVG icons folder", defaultSvgPath)
   .option("-m, --mode <mode>", "Execution mode (build or dev)", "build")
   .option("-o, --output <output>", "Output folder", null)
   .option("-f, --filename <filename>", "Output file name", null)
   .option("-e, --embed", "Embed SVGs as Data URIs", false)
+  .version("v" + getVersion(), "-v, --version", "Show version")
   .helpCommand();
 
 program.parse(process.argv);
