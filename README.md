@@ -26,6 +26,10 @@ You have two options for using the wicons tool:
    If you prefer to generate the CSS using your own icons, you can install the full package using npm:
 
    ```bash
+   # Install package globally
+   npm install -g wicons
+
+   # or you can install it in your project
    npm install wicons
    ```
 
@@ -41,10 +45,14 @@ You have two options for using the wicons tool:
 
 ## Usage wicons tool
 
-The `wicons` CLI tool provides multiple options to customize how your icon library is generated. Below are the available options:
+The `wicons` CLI tool offers multiple options to customize the number of icons and how they are referenced in the CSS. Below are the available options:
 
 ```bash
-   wicons [options]
+# If I install it globally use:
+wicons [options]
+
+# If you install it in your project use:
+npx wicons [options]
 ```
 
 ### Options
