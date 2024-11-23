@@ -15,7 +15,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build:css": "node bin/Cli.js && node bin/Cli.js -e false -r ./svg"
+    "build:css": "node bin/Cli.js && node bin/Cli.js -e false -r ./svg",
+    "dev:sandbox": "wivex dev -r sandbox",
+    "build:sandbox": "wivex build -r sandbox"
   },
   "keywords": [
     "icons",
@@ -33,5 +35,8 @@
   "dependencies": {
     "commander": "^12.1.0",
     "csso": "^5.0.5"
+  },
+  "devDependencies": {
+    "wivex": "^0.1.2"
   }
 }
