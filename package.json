@@ -2,34 +2,21 @@
   "name": "wicons",
   "version": "0.0.3",
   "description": "A command-line tool for generating custom CSS files with selected icons from the Wicons.",
-  "main": "bin/Cli.js",
+  "type": "module",
   "bin": {
     "wicons": "./bin/Cli.js"
   },
-  "type": "module",
-  "scripts": {
-    "start": "node bin/Cli.js",
-    "tool-dev": "node bin/Cli.js -m dev && node bin/Cli.js -m dev -e true",
-    "tool-build": "node bin/Cli.js -f wicons.routes.all.min.css && node bin/Cli.js -f wicons.embed.min.css -e true",
-    "web-dev": "node scripts/dev.js",
-    "web-build": "node scripts/build.js",
-    "web-preview": "servor ./public index.html --reload",
-    "web-deploy": "gh-pages -d public",
-    "map-routes": "node bin/svgMapGenerator.js",
-    "map-embed": "node bin/svgMapGenerator.js -e true"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wipodev/Wicons.git"
-  },
   "files": [
-    "bin/Cli.js",
-    "lib/svg/",
-    "lib/generateWicons.js",
-    "lib/utils.js",
+    "bin/",
+    "commands/",
     "dist/",
-    "README.md"
+    "svg/",
+    "README.md",
+    "LICENSE"
   ],
+  "scripts": {
+    "build:css": "node bin/Cli.js && node bin/Cli.js -e false -r ./svg"
+  },
   "keywords": [
     "icons",
     "css",
@@ -37,15 +24,14 @@
     "cli",
     "wicons"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipodev/Wicons.git"
+  },
   "author": "wipodev",
   "license": "MIT",
   "dependencies": {
     "commander": "^12.1.0",
     "csso": "^5.0.5"
-  },
-  "devDependencies": {
-    "cheerio": "^1.0.0",
-    "gh-pages": "^6.2.0",
-    "servor": "^4.0.2"
   }
 }

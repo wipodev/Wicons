@@ -73,7 +73,7 @@ export function getRoutesSVG(folderPath, embedded = true, relativePath) {
           if (!relativePath) {
             throw new Error("You must specify relativePath if embed is true");
           }
-          iconsRoutes[key] = relativePath;
+          iconsRoutes[key] = `${relativePath}${file}`;
         }
       }
     });
