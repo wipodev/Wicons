@@ -1,6 +1,7 @@
 node_modules/
 .vscode
-src/assets/css/wicons.*
-src/src/
-src/lib/
+sandbox/
+dist/
 repomix*
+project_structure.txt
+*.tgz
