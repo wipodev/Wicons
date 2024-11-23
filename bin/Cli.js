@@ -16,6 +16,7 @@ program
   .option("-o, --output <output>", "Output folder")
   .option("-f, --filename <filename>", "Output file name")
   .option("-e, --embed", "Embed SVGs as Data URIs")
+  .option("-r, --relativePath", "Use relative paths in the CSS")
   .option("-i, --include", "Include selected icons in the CSS")
   .action((options) => generateStyles(options));
 

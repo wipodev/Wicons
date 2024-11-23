@@ -15,12 +15,17 @@ export async function generateStyles(options) {
       minify: options.minify || config.minify || true,
       output: options.output || config.output || "dist",
       filename: options.filename || config.filename || "wicons",
-      embed: options.embed || config.embed || false,
+      embed: options.embed || config.embed || true,
+      relativePath: options.relativePath || config.relativePath || false,
       include: options.include || config.include || null,
     };
 
     if (!fs.existsSync(finalOptions.path)) {
       throw new Error(`The directory ${finalOptions.path} does not exist.`);
+    }
+
+    if (!finalOptions.relativePath && !finalOptions.embed) {
+      throw new Error("You must specify relativePath if embed is true");
     }
 
     const outputFilename = `${finalOptions.filename}.${finalOptions.embed ? "embed" : "routes"}${
@@ -30,7 +35,7 @@ export async function generateStyles(options) {
     const iconsToInclude =
       typeof finalOptions.include === "string" ? getSelectedIcons(finalOptions.include) : finalOptions.include;
 
-    const dataSVG = getRoutesSVG(finalOptions.path, finalOptions.embed);
+    const dataSVG = getRoutesSVG(finalOptions.path, finalOptions.embed, finalOptions.relativePath);
     const iconsToUse = iconsToInclude || Object.keys(dataSVG);
     const cssContent = createStyles(iconsToUse, dataSVG);
 
@@ -46,7 +51,7 @@ export async function generateStyles(options) {
   }
 }
 
-export function getRoutesSVG(folderPath, embedded = false) {
+export function getRoutesSVG(folderPath, embedded = true, relativePath) {
   const iconsRoutes = {};
 
   function readDirRecursively(currentPath) {
@@ -65,7 +70,9 @@ export function getRoutesSVG(folderPath, embedded = false) {
           const svgContent = fs.readFileSync(filePath, "utf8");
           iconsRoutes[key] = svgToDataURI(svgContent);
         } else {
-          const relativePath = "/" + path.relative(process.cwd(), filePath).replace(/\\/g, "/");
+          if (!relativePath) {
+            throw new Error("You must specify relativePath if embed is true");
+          }
           iconsRoutes[key] = relativePath;
         }
       }
