@@ -15,7 +15,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build:css": "node bin/Cli.js && node bin/Cli.js -e false -r ./svg",
+    "build:css": "node bin/Cli.js styles && node bin/Cli.js styles -e false -r ./svg",
     "dev:sandbox": "wivex dev -r sandbox",
     "build:sandbox": "wivex build -r sandbox"
   },
