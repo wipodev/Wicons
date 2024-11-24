@@ -37,6 +37,6 @@
     "csso": "^5.0.5"
   },
   "devDependencies": {
-    "wivex": "^0.1.2"
+    "wivex": "^0.1.3"
   }
 }
